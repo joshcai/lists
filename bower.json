@@ -1,0 +1,24 @@
+{
+  "name": "list",
+  "version": "0.0.0",
+  "authors": [
+    "Josh Cai <yuanshi419@gmail.com>"
+  ],
+  "description": "keep track of different lists",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.12.2",
+    "jquery": "~2.1.3"
+  }
+}
