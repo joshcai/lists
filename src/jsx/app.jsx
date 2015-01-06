@@ -1,8 +1,5 @@
-// tutorial1.js
-var data = [
-  {author: "Pete Hunt", text: "This is on commecnt"},
-  {author: "Jordan Walke", text: "This is *another* comsent"}
-];
+var React = require('react');
+var $ = require('jquery');
 
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
@@ -79,4 +76,3 @@ React.render(
   <CommentBox url="api/categories" pollInterval={2000} />,
   document.getElementById('content')
 );
-
