@@ -5,9 +5,7 @@ var CategoryList = React.createClass({
   render: function() {
     var categoryNodes = this.props.data.map(function (category) {
       return (
-        <Category title={category.title}>
-          {category._id}
-        </Category>
+        <Category key={category._id} title={category.title} url={"api/categories/"+category._id}/>
       );
     });
     return (

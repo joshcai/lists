@@ -25,8 +25,8 @@ var CategoryBox = React.createClass({
   },
   render: function() {
     return (
-      <div className="commentBox">
-        <h1>Comments</h1>
+      <div className="categoryBox">
+        <h1>Lists</h1>
         <CategoryList data={this.state.data} />
         <CategoryForm />
       </div>
