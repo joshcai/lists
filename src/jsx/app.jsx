@@ -12,6 +12,6 @@ var CategoryBox = require('./CategoryBox.jsx');
 //   - CategoryForm
 
 React.render(
-  <CategoryBox url="api/categories" pollInterval={2000} />,
+  <CategoryBox url="api/categories" pollInterval={200000} />,
   document.getElementById('content')
 );
