@@ -27,7 +27,7 @@ router.route('/entries')
 
 router.route('/entries/:id')
   .get(function(req, res) {
-    Entry.findOne({ _id: req.params.id}, function(err, entry) {
+    Entry.findOne({ _id: req.params.id }, function(err, entry) {
       if (err) {
         return res.send(err);
       }
@@ -66,5 +66,16 @@ router.route('/entries/:id')
       res.json({ message: 'Successfully deleted' });
     });
   });
+
+router.route('/entries/in/:id')
+  .get(function(req, res) {
+    Entry.find({ category: req.params.id }, function(err, entries) {
+      if (err) {
+        return res.send(err);
+      }
+
+      res.json(entries);
+    })
+  })
 
 module.exports = router;

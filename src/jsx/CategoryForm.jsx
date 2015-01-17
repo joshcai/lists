@@ -8,7 +8,6 @@ var CategoryForm = React.createClass({
       return;
     }
     this.props.onCategorySubmit({title: title});
-    // TODO: send request to the server
     this.refs.title.getDOMNode().value = '';
     return;
   },

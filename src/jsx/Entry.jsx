@@ -1,6 +1,5 @@
 var React = require('react');
 var $ = require('jquery');
-var EntryBox = require('./EntryBox.jsx');
 
 var Category = React.createClass({
   sendDelete: function() {
@@ -17,14 +16,13 @@ var Category = React.createClass({
   },
   render: function() {
     return (
-      <div className="category">
-        <h2 className="categoryTitle">
-          {this.props.title}
-        </h2>
-        <a href="#" onClick={this.sendDelete}>
-          delete
-        </a>
-        <EntryBox cat_id={this.props.cat_id} pollInterval={2000}/>
+      <div className="entry">
+        <p className="entryName">
+          {this.props.name}
+          <a href="#" onClick={this.sendDelete}>
+            &nbsp;delete
+          </a>
+        </p>
       </div>
     );
   }
