@@ -9,7 +9,7 @@ var CategoryList = React.createClass({
       );
     });
     return (
-      <div className="categoryList">
+      <div className="categoryList row">
         {categoryNodes}
       </div>
     );

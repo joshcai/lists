@@ -1,6 +1,8 @@
 extends layout
 
 block content
-  form(method='POST')
+  form(method='POST', name='loginForm')
     input(type='password', name='password', value='', placeholder='Password')
     input(type='submit', value='Login')
+  script.
+    document.forms['loginForm'].elements['password'].focus();

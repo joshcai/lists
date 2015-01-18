@@ -11,7 +11,9 @@ var CategoryBox = require('./CategoryBox.jsx');
 //           - Entry
 //   - CategoryForm
 
+var interval = (loggedIn ? 2000 : 30000);
+
 React.render(
-  <CategoryBox url="api/categories" pollInterval={2000} />,
+  <CategoryBox url="api/categories" pollInterval={interval} />,
   document.getElementById('content')
 );

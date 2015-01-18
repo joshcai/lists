@@ -40,12 +40,16 @@ var CategoryBox = React.createClass({
     this.loadCategoriesFromServer();
     setInterval(this.loadCategoriesFromServer, this.props.pollInterval);
   },
+  togglePreview: function() {
+    loggedIn = !loggedIn;
+  },
   render: function() {
     return (
       <div className="categoryBox">
-        <h1>Lists</h1>
         <CategoryList data={this.state.data} />
-        {loggedIn && <CategoryForm onCategorySubmit={this.handleCategorySubmit} />}
+        {loggedIn && 
+          <CategoryForm onCategorySubmit={this.handleCategorySubmit} />
+        }
       </div>
     );
   }

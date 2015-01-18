@@ -1,8 +1,11 @@
 extends layout
 
 block content
-  div#content
+  div#content.container
+  if loggedIn
+    br
+    .text-center
+      a(href='#', onclick='javascript:loggedIn=!loggedIn') Toggle
   script.
     var loggedIn = #{loggedIn};
-    console.log(loggedIn);
   script(src='/js/bundle.js')
