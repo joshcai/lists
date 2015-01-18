@@ -13,6 +13,9 @@ router.route('/categories')
     });
   })
   .post(function(req, res) {
+    if(!req.session.login) {
+      return res.status(403).send('Authentication failure');
+    }
     var category = new Category(req.body);
     console.log(req.body);
 
@@ -36,6 +39,9 @@ router.route('/categories/:id')
     });
   })
   .put(function(req,res){
+    if(!req.session.login) {
+      return res.status(403).send('Authentication failure');
+    }
     Category.findOne({ _id: req.params.id }, function(err, category) {
       if (err) {
         return res.send(err);
@@ -56,6 +62,9 @@ router.route('/categories/:id')
     });
   })
   .delete(function(req, res) {
+    if(!req.session.login) {
+      return res.status(403).send('Authentication failure');
+    }
     Category.remove({
       _id: req.params.id
     }, function(err, category) {

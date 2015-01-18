@@ -13,6 +13,9 @@ router.route('/entries')
     });
   })
   .post(function(req, res) {
+    if(!req.session.login) {
+      return res.status(403).send('Authentication failure');
+    }
     var entry = new Entry(req.body);
     console.log(req.body);
 
@@ -36,6 +39,9 @@ router.route('/entries/:id')
     });
   })
   .put(function(req,res){
+    if(!req.session.login) {
+      return res.status(403).send('Authentication failure');
+    }
     Entry.findOne({ _id: req.params.id }, function(err, entry) {
       if (err) {
         return res.send(err);
@@ -56,6 +62,9 @@ router.route('/entries/:id')
     });
   })
   .delete(function(req, res) {
+    if(!req.session.login) {
+      return res.status(403).send('Authentication failure');
+    }
     Entry.remove({
       _id: req.params.id
     }, function(err, entry) {
