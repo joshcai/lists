@@ -13,10 +13,12 @@ var CategoryForm = React.createClass({
   },
   render: function() {
     return (
-        <form className="categoryForm text-center" onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Title" ref="title"/>
-          <input type="submit" value="Post" />
-        </form>
+      <form className="categoryForm text-center form-inline" onSubmit={this.handleSubmit}>
+        <input type="text" className="form-control" placeholder="Add a category..." ref="title"/>&nbsp;
+        <button type="submit" className="btn btn-primary">
+          Post
+        </button>     
+      </form>
     );
   }
 });

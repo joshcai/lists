@@ -20,9 +20,9 @@ var Category = React.createClass({
         <p className="entryName">
           {this.props.name} &nbsp;
           {loggedIn &&
-            <a href="#" onClick={this.sendDelete}>
-              delete
-            </a>
+            <button type="button" className="close" onClick={this.sendDelete}>
+              ×
+            </button>
           }
         </p>
       </div>

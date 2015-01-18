@@ -5,7 +5,7 @@ var config = require('../config');
 /* GET home page. */
 router.get('/', function(req, res) {
   var loggedIn = (req.session.login ? true : false);
-  res.render('index', { loggedIn: loggedIn });
+  res.render('index', { loggedIn: loggedIn, title: 'Lists' });
 });
 
 router.route('/login')

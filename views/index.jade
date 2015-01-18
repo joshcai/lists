@@ -1,11 +1,13 @@
 extends layout
 
 block content
-  div#content.container
+  div#content.container-fluid
   if loggedIn
     br
     .text-center
-      a(href='#', onclick='javascript:loggedIn=!loggedIn') Toggle
+      a(href='#', class='btn btn-success', onclick='javascript:loggedIn=!loggedIn') Toggle View
+      &nbsp;
+      a(href='/logout', class='btn btn-warning') Logout
   script.
     var loggedIn = #{loggedIn};
   script(src='/js/bundle.js')

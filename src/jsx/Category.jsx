@@ -19,15 +19,19 @@ var Category = React.createClass({
     var interval = (loggedIn ? 2000 : 30000);
     return (
       <div className="category col-md-3 col-sm-4 col-xs-6">
-        <h2 className="categoryTitle">
-          {this.props.title}
-        </h2>
-        {loggedIn && 
-          <a href="#" onClick={this.sendDelete}>
-            delete category
-          </a>
-        }
-        <EntryBox cat_id={this.props.cat_id} pollInterval={interval}/>
+        <div className="category-inner well">
+          <div className="text-center">
+            <h2 className="categoryTitle">
+              {this.props.title}
+            </h2>
+            {loggedIn && 
+              <a href="#" className="btn btn-danger" onClick={this.sendDelete}>
+                delete category
+              </a>
+            }
+          </div>
+          <EntryBox cat_id={this.props.cat_id} pollInterval={interval}/>
+        </div>
       </div>
     );
   }

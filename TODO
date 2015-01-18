@@ -5,3 +5,5 @@ ordering of entries
 show additional properties (rating / date / priority)
 easy api integration
 cache responses for people with no js
+optimistic delete
+warning on delete
