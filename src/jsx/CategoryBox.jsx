@@ -45,7 +45,7 @@ var CategoryBox = React.createClass({
       <div className="categoryBox">
         <h1>Lists</h1>
         <CategoryList data={this.state.data} />
-        <CategoryForm onCategorySubmit={this.handleCategorySubmit} />
+        {loggedIn && <CategoryForm onCategorySubmit={this.handleCategorySubmit} />}
       </div>
     );
   }

@@ -21,9 +21,11 @@ var Category = React.createClass({
         <h2 className="categoryTitle">
           {this.props.title}
         </h2>
-        <a href="#" onClick={this.sendDelete}>
-          delete
-        </a>
+        {loggedIn && 
+          <a href="#" onClick={this.sendDelete}>
+            delete
+          </a>
+        }
         <EntryBox cat_id={this.props.cat_id} pollInterval={2000}/>
       </div>
     );

@@ -47,7 +47,7 @@ var EntryBox = React.createClass({
     return (
       <div className="entryBox">
         <EntryList data={this.state.data} />
-        <EntryForm onEntrySubmit={this.handleEntrySubmit} />
+        {loggedIn && <EntryForm onEntrySubmit={this.handleEntrySubmit} /> }
       </div>
     );
   }

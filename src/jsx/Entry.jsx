@@ -19,9 +19,11 @@ var Category = React.createClass({
       <div className="entry">
         <p className="entryName">
           {this.props.name}
-          <a href="#" onClick={this.sendDelete}>
-            &nbsp;delete
-          </a>
+          {loggedIn &&
+            <a href="#" onClick={this.sendDelete}>
+              &nbsp;delete
+            </a>
+          }
         </p>
       </div>
     );

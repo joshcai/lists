@@ -2,4 +2,7 @@ extends layout
 
 block content
   div#content
+  script.
+    var loggedIn = #{loggedIn};
+    console.log(loggedIn);
   script(src='/js/bundle.js')
