@@ -2,19 +2,12 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var reactify = require('reactify');
-var jshint = require('gulp-jshint');
 
 
 var paths = {
   app_js: ['./src/jsx/app.jsx'],
   js: ['./src/jsx/*.jsx']
 }
-
-gulp.task('lint', function() {
-  return gulp.src(paths.js)
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-});
 
 // Bundle js with browserify
 gulp.task('js', function(){

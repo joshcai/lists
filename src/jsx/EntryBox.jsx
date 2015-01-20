@@ -5,6 +5,10 @@ var EntryForm = require('./EntryForm.jsx');
 
 var EntryBox = React.createClass({
   loadEntriesFromServer: function() {
+    if(!this.props.cat_id) {
+      // on optimistic add, doesn't have cat_id yet
+      return;
+    }
     var url = 'api/entries/in/' + this.props.cat_id;
     $.ajax({
       url: url,
@@ -29,10 +33,26 @@ var EntryBox = React.createClass({
       type: 'POST',
       data: entry,
       success: function(data) {
-        this.setState({data: data});
+        console.log(data);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleEntryDelete: function(url, e_id) {
+    var entries = this.state.data;
+    var index = entries.map(function(e) { return e._id; }).indexOf(e_id);
+    entries.splice(index, 1);
+    this.setState({data: entries});
+    $.ajax({
+      url: url,
+      type: 'DELETE',
+      success: function(data) {
+        console.log(data);
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
   },
@@ -46,7 +66,7 @@ var EntryBox = React.createClass({
   render: function() {
     return (
       <div className="entryBox">
-        <EntryList data={this.state.data} />
+        <EntryList data={this.state.data} onEntryDelete={this.handleEntryDelete}/>
         {loggedIn && <EntryForm onEntrySubmit={this.handleEntrySubmit} /> }
       </div>
     );

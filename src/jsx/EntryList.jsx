@@ -5,9 +5,14 @@ var EntryList = React.createClass({
   render: function() {
     var entryNodes = this.props.data.map(function (entry) {
       return (
-        <Entry key={entry._id} name={entry.name} url={"api/entries/"+entry._id}/>
+        <Entry
+          key={entry._id}
+          e_id={entry._id}
+          name={entry.name}
+          url={"api/entries/"+entry._id}
+          onEntryDelete={this.props.onEntryDelete}/>
       );
-    });
+    }, this);
     return (
       <div className="entryList">
         {entryNodes}

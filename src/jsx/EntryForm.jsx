@@ -15,7 +15,7 @@ var EntryForm = React.createClass({
     return (
       <form className="entryForm" onSubmit={this.handleSubmit}>
         <input type="text" className="form-control" placeholder="Add an entry..." ref="name" />
-        <input type="submit" className="hiddenSubmit" hidefocus="true" tabindex="-1" />
+        <input type="submit" className="hiddenSubmit" hidefocus="true" tabIndex="-1" />
       </form>
     );
   }

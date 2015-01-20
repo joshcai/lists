@@ -5,9 +5,14 @@ var CategoryList = React.createClass({
   render: function() {
     var categoryNodes = this.props.data.map(function (category) {
       return (
-        <Category key={category._id} cat_id={category._id} title={category.title} url={"api/categories/"+category._id}/>
+        <Category
+          key={category._id}
+          cat_id={category._id}
+          title={category.title}
+          url={"api/categories/"+category._id}
+          onCategoryDelete={this.props.onCategoryDelete}/>
       );
-    });
+    }, this);
     return (
       <div className="categoryList row">
         {categoryNodes}

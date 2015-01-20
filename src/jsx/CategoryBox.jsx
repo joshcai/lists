@@ -26,7 +26,23 @@ var CategoryBox = React.createClass({
       type: 'POST',
       data: category,
       success: function(data) {
-        this.setState({data: data});
+        console.log(data);
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleCategoryDelete: function(url, cat_id) {
+    var categories = this.state.data;
+    var index = categories.map(function(e) { return e._id; }).indexOf(cat_id);
+    categories.splice(index, 1);
+    this.setState({data: categories});
+    $.ajax({
+      url: url,
+      type: 'DELETE',
+      success: function(data) {
+        console.log(data);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -46,8 +62,8 @@ var CategoryBox = React.createClass({
   render: function() {
     return (
       <div className="categoryBox">
-        <CategoryList data={this.state.data} />
-        {loggedIn && 
+        <CategoryList data={this.state.data} onCategoryDelete={this.handleCategoryDelete}/>
+        {loggedIn &&
           <CategoryForm onCategorySubmit={this.handleCategorySubmit} />
         }
       </div>

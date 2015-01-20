@@ -3,16 +3,7 @@ var $ = require('jquery');
 
 var Category = React.createClass({
   sendDelete: function() {
-    $.ajax({
-      url: this.props.url,
-      type: 'DELETE',
-      success: function(data) {
-        console.log(data);
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
+    this.props.onEntryDelete(this.props.url, this.props.e_id);
   },
   render: function() {
     return (
