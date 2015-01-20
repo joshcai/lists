@@ -16,7 +16,9 @@ var Category = React.createClass({
               {this.props.title}
             </h4>
             {loggedIn &&
-              <a href="#" className="btn btn-danger" onClick={this.sendDelete}>
+              <a href="#"
+                className={"btn btn-danger"+(this.props.cat_id ? "" : " disabled")}
+                onClick={this.sendDelete}>
                 delete category
               </a>
             }

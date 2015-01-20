@@ -61,7 +61,10 @@ var EntryBox = React.createClass({
   },
   componentDidMount: function() {
     this.loadEntriesFromServer();
-    setInterval(this.loadEntriesFromServer, this.props.pollInterval);
+    this.poller = setInterval(this.loadEntriesFromServer, this.props.pollInterval);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.poller);
   },
   render: function() {
     return (
