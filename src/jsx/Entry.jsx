@@ -10,7 +10,7 @@ var Category = React.createClass({
       <div className="entry">
         <p className="entryName">
           {this.props.name} &nbsp;
-          {loggedIn &&
+          {loggedIn && this.props.e_id &&
             <button type="button" className="close" onClick={this.sendDelete}>
               ×
             </button>
