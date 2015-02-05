@@ -2,9 +2,9 @@ var React = require('react');
 var $ = require('jquery');
 var EntryBox = require('./EntryBox.jsx');
 
-var Category = React.createClass({
+var List = React.createClass({
   sendDelete: function() {
-    this.props.onCategoryDelete(this.props.url, this.props.cat_id);
+    this.props.onCategoryDelete(this.props.url, this.props.parent_id);
   },
   render: function() {
     var interval = (loggedIn ? 2000 : 30000);
@@ -13,21 +13,15 @@ var Category = React.createClass({
         <div className="category-inner well">
           <div className="text-center">
             <h4 className="categoryTitle">
-              {this.props.title}
+              {this.props.name}
             </h4>
-            {loggedIn &&
-              <a href="#"
-                className={"btn btn-danger"+(this.props.cat_id ? "" : " disabled")}
-                onClick={this.sendDelete}>
-                delete category
-              </a>
-            }
           </div>
-          <EntryBox cat_id={this.props.cat_id} pollInterval={interval}/>
+          <br />
+          <EntryBox parent_id={this.props.parent_id} pollInterval={interval}/>
         </div>
       </div>
     );
   }
 });
 
-module.exports = Category;
+module.exports = List;

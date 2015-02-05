@@ -1,19 +1,17 @@
 var React = require('react');
-var CategoryBox = require('./CategoryBox.jsx');
+var ListsBox = require('./ListsBox.jsx');
 
 // Component Structure
-// - CategoryBox
-//   - CategoryList
-//     - Category
-//       - EntryBox
-//         - EntryForm
-//         - EntryList
-//           - Entry
-//   - CategoryForm
+// - ListsBox
+//   - List
+//     - EntryBox
+//       - EntryForm
+//       - EntryList
+//         - Entry
 
 var interval = (loggedIn ? 2000 : 30000);
 
 React.render(
-  <CategoryBox url="api/categories" pollInterval={interval} />,
+  <ListsBox url="api/categories" pollInterval={interval} />,
   document.getElementById('content')
 );

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var entrySchema = new Schema({
   name: { type: String, required: true },
-  category: Schema.Types.ObjectId,
+  parent: Schema.Types.ObjectId,
   priv: { type: Boolean, default: false },
   properties: Schema.Types.Mixed,
   created: { type: Date, default: Date.now },

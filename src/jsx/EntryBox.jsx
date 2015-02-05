@@ -5,11 +5,11 @@ var EntryForm = require('./EntryForm.jsx');
 
 var EntryBox = React.createClass({
   loadEntriesFromServer: function() {
-    if(!this.props.cat_id) {
-      // on optimistic add, doesn't have cat_id yet
+    if(!this.props.parent_id) {
+      // on optimistic add, doesn't have parent_id yet
       return;
     }
-    var url = 'api/entries/in/' + this.props.cat_id;
+    var url = 'api/entries/in/' + this.props.parent_id;
     $.ajax({
       url: url,
       dataType: 'json',
@@ -25,7 +25,7 @@ var EntryBox = React.createClass({
     var entries = this.state.data;
     var newEntries = entries.concat([entry]);
     this.setState({data: newEntries});
-    entry.category = this.props.cat_id;
+    entry.parent = this.props.parent_id;
     var url = 'api/entries';
     $.ajax({
       url: url,

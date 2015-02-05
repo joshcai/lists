@@ -1,6 +1,6 @@
 var Entry = require('../models/entry')
 var express = require('express');
-var router = require('./category');
+var router = express.Router();
 
 router.route('/entries')
   .get(function(req, res) {
@@ -78,13 +78,23 @@ router.route('/entries/:id')
 
 router.route('/entries/in/:id')
   .get(function(req, res) {
-    Entry.find({ category: req.params.id }, function(err, entries) {
+    Entry.find({ parent: req.params.id }, function(err, entries) {
       if (err) {
         return res.send(err);
       }
 
       res.json(entries);
     })
-  })
+  });
+
+router.route('/categories')
+  .get(function(req, res) {
+    Entry.find({name: 'Lists'}, function(err, entry) {
+      if (err) {
+        return res.send(err);
+      }
+      res.json(entry);
+    });
+  });
 
 module.exports = router;
