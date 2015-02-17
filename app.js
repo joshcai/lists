@@ -24,7 +24,7 @@ var Entry = require('./models/entry');
 
 Entry.findOne({name: 'Lists'}, function(err, entry) {
   if(!entry) {
-    var entry = new Entry({name: 'Lists'});
+    var entry = new Entry({name: 'Lists', depth: 0});
     entry.save(function(err) {
       if(err) {
         console.log(err);

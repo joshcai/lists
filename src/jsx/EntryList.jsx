@@ -10,6 +10,7 @@ var EntryList = React.createClass({
           e_id={entry._id}
           name={entry.name}
           url={"api/entries/"+entry._id}
+          onOpenList={this.props.onOpenList}
           onEntryDelete={this.props.onEntryDelete}/>
       );
     }, this);

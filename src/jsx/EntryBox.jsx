@@ -26,6 +26,7 @@ var EntryBox = React.createClass({
     var newEntries = entries.concat([entry]);
     this.setState({data: newEntries});
     entry.parent = this.props.parent_id;
+    entry.depth = this.props.depth + 1;
     var url = 'api/entries';
     $.ajax({
       url: url,
@@ -69,7 +70,10 @@ var EntryBox = React.createClass({
   render: function() {
     return (
       <div className="entryBox">
-        <EntryList data={this.state.data} onEntryDelete={this.handleEntryDelete}/>
+        <EntryList
+          data={this.state.data}
+          onEntryDelete={this.handleEntryDelete}
+          onOpenList={this.props.onOpenList}/>
         {loggedIn && <EntryForm onEntrySubmit={this.handleEntrySubmit} /> }
       </div>
     );

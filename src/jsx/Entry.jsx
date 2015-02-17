@@ -5,11 +5,16 @@ var Category = React.createClass({
   sendDelete: function() {
     this.props.onEntryDelete(this.props.url, this.props.e_id);
   },
+  openList: function() {
+    this.props.onOpenList(this.props.url);
+  },
   render: function() {
     return (
       <div className="entry">
         <p className="entryName">
-          {this.props.name} &nbsp;
+          <a href="#" onClick={this.openList}>
+            {this.props.name}
+          </a>&nbsp;
           {loggedIn && this.props.e_id &&
             <button
               type="button"

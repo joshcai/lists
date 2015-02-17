@@ -17,7 +17,11 @@ var List = React.createClass({
             </h4>
           </div>
           <br />
-          <EntryBox parent_id={this.props.parent_id} pollInterval={interval}/>
+          <EntryBox
+            parent_id={this.props.parent_id}
+            pollInterval={interval}
+            onOpenList={this.props.onOpenList}
+            depth={this.props.depth}/>
         </div>
       </div>
     );

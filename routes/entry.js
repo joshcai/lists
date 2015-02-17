@@ -17,7 +17,7 @@ router.route('/entries')
       return res.status(403).send('Authentication failure');
     }
     var entry = new Entry(req.body);
-    console.log(req.body);
+    console.log(entry);
 
     entry.save(function(err) {
       if (err) {
