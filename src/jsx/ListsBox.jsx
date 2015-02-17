@@ -27,7 +27,6 @@ var ListsBox = React.createClass({
       dataType: 'json',
       type: 'GET',
       success: function(data) {
-        console.log(data);
         var lists = this.state.data;
         var newLists = lists.splice(0, data.depth).concat([data]);
         this.setState({data: newLists});
