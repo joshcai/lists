@@ -3,7 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "jest/preprocessor.js",
+    "setupEnvScriptFile": "jest/environment.js",
+    "unmockedModulePathPatterns": [
+      "node_modules/react"
+    ]
   },
   "dependencies": {
     "body-parser": "~1.8.1",
@@ -23,6 +31,8 @@
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-jshint": "^1.9.0",
+    "jest-cli": "^0.4.3",
+    "react-tools": "^0.13.3",
     "reactify": "^0.17.1",
     "vinyl-source-stream": "^1.0.0"
   }

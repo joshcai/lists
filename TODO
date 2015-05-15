@@ -10,3 +10,4 @@ recommendations
 use websockets
 write tests
 private entries
+switch to mocha to run tests

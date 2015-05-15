@@ -1,7 +1,7 @@
 var React = require('react');
 var $ = require('jquery');
 
-var Category = React.createClass({
+var Entry = React.createClass({
   sendDelete: function() {
     this.props.onEntryDelete(this.props.url, this.props.e_id);
   },
@@ -29,4 +29,4 @@ var Category = React.createClass({
   }
 });
 
-module.exports = Category;
+module.exports = Entry;
