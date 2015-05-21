@@ -1,6 +1,5 @@
 update (PUT methods)
 better styling
-sublists
 ordering of entries
 show additional properties (rating / date / priority)
 easy api integration
@@ -9,5 +8,5 @@ warning on delete
 recommendations
 use websockets
 write tests
-private entries
+subentries in a private entry should be private
 switch to mocha to run tests

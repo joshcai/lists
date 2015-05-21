@@ -8,6 +8,7 @@ var ListsBox = require('./ListsBox.jsx');
 //       - EntryForm
 //       - EntryList
 //         - Entry
+//           - EntryPrivacy
 
 var interval = (loggedIn ? 2000 : 30000);
 

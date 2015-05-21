@@ -4,7 +4,12 @@ var router = express.Router();
 
 router.route('/entries')
   .get(function(req, res) {
-    Entry.find(function(err, entries) {
+    var filter = {};
+    // if not logged in, only return non private entries
+    if(!req.session.login) {
+      filter['priv'] = false
+    }
+    Entry.find(filter, function(err, entries) {
       if (err) {
         return res.send(err);
       }
@@ -30,7 +35,12 @@ router.route('/entries')
 
 router.route('/entries/:id')
   .get(function(req, res) {
-    Entry.findOne({ _id: req.params.id }, function(err, entry) {
+    var filter = { _id: req.params.id };
+    // if not logged in, only return non private entries
+    if(!req.session.login) {
+      filter['priv'] = false
+    }
+    Entry.findOne(filter, function(err, entry) {
       if (err) {
         return res.send(err);
       }
@@ -78,7 +88,12 @@ router.route('/entries/:id')
 
 router.route('/entries/in/:id')
   .get(function(req, res) {
-    Entry.find({ parent: req.params.id }, function(err, entries) {
+    var filter = { parent: req.params.id };
+    // if not logged in, only return non private entries
+    if(!req.session.login) {
+      filter['priv'] = false
+    }
+    Entry.find(filter, function(err, entries) {
       if (err) {
         return res.send(err);
       }
@@ -89,7 +104,12 @@ router.route('/entries/in/:id')
 
 router.route('/categories')
   .get(function(req, res) {
-    Entry.find({name: 'Lists'}, function(err, entry) {
+    var filter = { name: 'Lists' };
+    // if not logged in, only return non private entries
+    if(!req.session.login) {
+      filter['priv'] = false
+    }
+    Entry.find(filter, function(err, entry) {
       if (err) {
         return res.send(err);
       }
