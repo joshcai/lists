@@ -23,14 +23,21 @@ router.route('/entries')
     }
     var entry = new Entry(req.body);
     console.log(entry);
-
-    entry.save(function(err) {
+    Entry.findOne({ _id: entry.parent }, function(err, parent) {
       if (err) {
         return res.send(err);
       }
+      if(parent.priv) {
+        entry.priv = true;
+      }
+      entry.save(function(err) {
+        if (err) {
+          return res.send(err);
+        }
 
-      res.send({ message: 'Entry Added' });
-    });
+        res.send({ message: 'Entry Added' });
+      });
+    })
   });
 
 router.route('/entries/:id')

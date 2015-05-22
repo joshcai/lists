@@ -8,5 +8,4 @@ warning on delete
 recommendations
 use websockets
 write tests
-subentries in a private entry should be private
 switch to mocha to run tests
