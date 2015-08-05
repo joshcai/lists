@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var argv = require('yargs').argv;
 var config = require('../config');
 
 /* GET home page. */
@@ -10,6 +11,10 @@ router.get('/', function(req, res) {
 
 router.route('/login')
   .get(function(req, res) {
+    if(argv.d) {
+      req.session.login = true;
+      res.redirect('/');
+    }
     res.render('login');
   })
   .post(function(req, res) {

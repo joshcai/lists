@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node ./bin/www -d",
     "test": "jest"
   },
   "jest": {
@@ -26,7 +26,8 @@
     "mongoose": "^3.8.21",
     "morgan": "~1.3.0",
     "react": "^0.12.2",
-    "serve-favicon": "~2.1.3"
+    "serve-favicon": "~2.1.3",
+    "yargs": "^3.9.1"
   },
   "devDependencies": {
     "gulp": "^3.8.10",

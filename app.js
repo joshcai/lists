@@ -13,7 +13,6 @@ var api_routes = require('./routes/entry');
 
 var app = express();
 
-
 // connect to database
 var dbName = 'lists';
 var connectionString = 'mongodb://localhost:27017/' + dbName;
